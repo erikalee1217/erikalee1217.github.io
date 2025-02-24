@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Erika's Data Travelogue</title>
+  <meta name="description" content="Erika's Data Travelogue - Exploring data, travel, and life experiences.">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    /* Minimalistic custom styles */
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+    .hero {
+      background: url('images/backgrounds/01.jpg') no-repeat center center;
+      background-size: cover;
+      position: relative;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .hero-content {
+      position: relative;
+      text-align: center;
+      z-index: 1;
+    }
+    .section-title {
+      margin: 60px 0 30px;
+      text-align: center;
+    }
+    .card-img-top {
+      height: 180px;
+      object-fit: cover;
+    }
+    .ref-img img {
+      transition: transform 0.3s ease;
+    }
+    .ref-img img:hover {
+      transform: scale(1.05);
+    }
+    footer {
+      background-color: #f8f9fa;
+      padding: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Hi, I'm Erika!</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              About
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+              <li><a class="dropdown-item" href="#experience">Experience</a></li>
+              <li><a class="dropdown-item" href="#references">Besides Data</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://drive.google.com/file/d/15LjBE5UXl0MOaY7--BdNIEw5v-cc_BA6/view?usp=sharing" target="_blank">Resume</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#footer">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="display-4">I-Hsuan (Erika) Lee</h1>
+      <p class="lead">Addicted to exploring data and discovering new worlds.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container my-5">
+    <!-- Experience Section -->
+    <section id="experience">
+      <div class="section-title">
+        <h2>Experience</h2>
+      </div>
+      
+      <!-- Education Experience -->
+      <div class="mb-5">
+        <h3 class="mb-4">Education Experience</h3>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card border-0">
+              <div class="row g-0 align-items-center">
+                <div class="col-md-4">
+                  <img src="images/KUL.png" class="img-fluid" alt="KU Leuven logo">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">KU Leuven, Belgium</h5>
+                    <p class="card-text"><strong>Exchange program in Economics and Business</strong><br>
+                    GPA: 3.78/4.0<br>
+                    February 2022 - July 2022</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="card border-0">
+              <div class="row g-0 align-items-center">
+                <div class="col-md-4">
+                  <img src="images/NCTU.png" class="img-fluid" alt="NYCU logo">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">National Yang Ming Chiao Tung University, Taiwan</h5>
+                    <p class="card-text"><strong>Bachelor of Science in Information Management and Finance</strong><br>
+                    Cross-Disciplinary Specialty in Artificial Intelligence<br>
+                    September 2017 - June 2022</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="card border-0">
+              <div class="row g-0 align-items-center">
+                <div class="col-md-4">
+                  <img src="images/ZSGH.png" class="img-fluid" alt="Zhongshan Girls High School logo">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Taipei Municipal Zhongshan Girls High School, Taiwan</h5>
+                    <p class="card-text"><strong>Mathematics and Science Gifted Class - Specialty in Physics</strong><br>
+                    September 2014 - June 2017</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Work Experience -->
+      <div class="mb-5">
+        <h3 class="mb-4">Work Experience</h3>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card border-0">
+              <div class="row g-0 align-items-center">
+                <div class="col-md-4">
+                  <img src="images/NCTU.png" class="img-fluid" alt="NYCU Center for Institutional Research">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">NYCU Center for Institutional Research and Data Analytics, Taiwan</h5>
+                    <p class="card-text"><strong>Research Assistant</strong><br>
+                    Recorded interview data and analyzed project content.<br>
+                    Built a visual dashboard with Tableau & created an instructional presentation.<br>
+                    September 2019 - August 2020</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="card border-0">
+              <div class="row g-0 align-items-center">
+                <div class="col-md-4">
+                  <img src="images/cvnz.jpg" class="img-fluid" alt="Conservation Volunteers New Zealand">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Conservation Volunteers New Zealand</h5>
+                    <p class="card-text"><strong>International Environmental Volunteer</strong><br>
+                    July 2019 - August 2019</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="card border-0">
+              <div class="row g-0 align-items-center">
+                <div class="col-md-4">
+                  <img src="images/church.jpg" class="img-fluid" alt="Newman Baptist Church">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Newman Baptist Church</h5>
+                    <p class="card-text"><strong>Volunteer Tutor</strong><br>
+                    September 2017 - August 2018</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Extracurricular Experience -->
+      <div class="mb-5">
+        <h3 class="mb-4">Extracurricular Experience</h3>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card border-0">
+              <div class="row g-0 align-items-center">
+                <div class="col-md-4">
+                  <img src="images/lcc.png" class="img-fluid" alt="Leuven Case Competition">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Leuven Case Competition, Belgium</h5>
+                    <p class="card-text"><strong>Participant</strong><br>
+                    Reached the final (Top 25%) and achieved 5th place in the Lotus Bakeries group case.<br>
+                    March 2022</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="card border-0">
+              <div class="row g-0 align-items-center">
+                <div class="col-md-4">
+                  <img src="images/nctufcs.jpg" class="img-fluid" alt="HSNU & ZSGH Alumni Association">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">HSNU & ZSGH Alumni Association</h5>
+                    <p class="card-text"><strong>Vice President</strong><br>
+                    Organized orientation for 100+ new members and managed a Facebook fan page using Facebook Insights.<br>
+                    September 2018 - August 2020</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="card border-0">
+              <div class="row g-0 align-items-center">
+                <div class="col-md-4">
+                  <img src="images/imfcamp.jpg" class="img-fluid" alt="Information Management and Finance Camp">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Information Management and Finance Camp</h5>
+                    <p class="card-text"><strong>Event Planning Team & TA</strong><br>
+                    Taught C++ fundamentals to high school students.<br>
+                    December 2017 - February 2018</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Besides Data Section -->
+    <section id="references">
+      <div class="section-title">
+        <h2>Besides Data</h2>
+        <p>I’m curious and passionate about traveling, dancing, playing the violin, reading, photography, and stargazing.</p>
+      </div>
+      <div class="row ref-img g-3">
+        <div class="col-md-4">
+          <img src="images/taiwan.jpg" class="img-fluid" alt="Taiwan" title="Taiwan | Always be my lovely hometown❤️">
+        </div>
+        <div class="col-md-4">
+          <img src="images/travel.jpg" class="img-fluid" alt="Italy" title="Italy | The country of visible history🏛">
+        </div>
+        <div class="col-md-4">
+          <img src="images/swiss.jpg" class="img-fluid" alt="Switzerland" title="Switzerland | A fairyland of beauty✨">
+        </div>
+        <div class="col-md-4">
+          <img src="images/photo.JPG" class="img-fluid" alt="Denmark" title="Denmark | One of the happiest countries in the world😊">
+        </div>
+        <div class="col-md-4">
+          <img src="images/london.jpg" class="img-fluid" alt="UK" title="UK | A vibrant country you'll fall in love with💂">
+        </div>
+        <div class="col-md-4">
+          <img src="images/spain.jpg" class="img-fluid" alt="Spain" title="Spain | Full of creativity and delicacies🥘">
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="my-5">
+      <div class="section-title">
+        <h2>Projects</h2>
+        <p>A selection of my data analysis projects, covering visualization, machine learning, NLP, and more.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100">
+            <a href="https://drive.google.com/file/d/1usLKBvC1MJVmKSUrRyXiCjBYrq1hF7GN/view?usp=sharing" target="_blank">
+              <img src="images/phone.jpg" class="card-img-top" alt="Tweets Analysis Project">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">Tweets Analysis</h5>
+              <p class="card-text">Explores how tweet content influences account attractiveness and network position.</p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">January, 2022</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <a href="https://drive.google.com/file/d/1FcIf3web9K7i_yMfI0-U1cIt8i96tZjP/view?usp=sharing" target="_blank">
+              <img src="images/medical.jpg" class="card-img-top" alt="Outpatient Wait Time Prediction">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">Outpatient Wait Time</h5>
+              <p class="card-text">Predicts waiting times for outpatients using SGD and Random Forest.</p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">June, 2021</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <a href="https://drive.google.com/file/d/1GRsegD57M6U4RKCOlh8oohCGbBmXwGf5/view?usp=sharing" target="_blank">
+              <img src="images/pm25.jpeg" class="card-img-top" alt="Air Quality Analysis">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">Air Quality Analysis</h5>
+              <p class="card-text">Analyzes air quality data and examines the impact of PM2.5/PM10 on health.</p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">January, 2021</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-end mt-3">
+        <a class="btn btn-outline-secondary" href="pages/project.html">View more projects</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-6 mb-2">
+          <p><strong>Give me a call:</strong> +886 (9) 81 090 553</p>
+        </div>
+        <div class="col-md-6 mb-2">
+          <p><strong>Send me a mail:</strong> <a href="mailto:ihsuan.lee1217@gmail.com">ihsuan.lee1217@gmail.com</a></p>
+        </div>
+      </div>
+      <p class="mb-0">&copy; 2022 I-Hsuan (Erika) Lee</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
