@@ -1,11 +1,14 @@
 {
-  "name": "eldin-space-vue",
+  "homepage": "https://erikalee1217.github.io",
+  "name": "erika-vue-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "predeploy": "npm run build",
+    "deploy": "npm run build && cp -r dist/* . && git add . && git commit -m 'deploy' && git push"
   },
   "dependencies": {
     "core-js": "^2.6.9",
@@ -28,6 +31,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.2.3",
+    "gh-pages": "^6.3.0",
     "stylus": "^0.54.8",
     "stylus-loader": "^3.0.2",
     "vue-cli-plugin-vuetify": "^0.5.0",
