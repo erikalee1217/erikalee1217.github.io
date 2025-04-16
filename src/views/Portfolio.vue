@@ -119,7 +119,7 @@ export default {
           dialog: false,
           title: "Vocabuddy: GRE/TOEFL Vocabulary App",
           git: "https://github.com/erikalee1217/Vocabuddy.git",
-          demo: "https://www.brandly.com/",
+          demo: "",
           description: "This project is a web-based vocabulary builder app for standardized test prep. Designed and " +
             "optimized RESTful APIs using Node.js and Express, and created a normalized MySQL database schema, " +
             "reducing SQL query costs by up to 50% through indexing. Contributed to the backend development and " +
