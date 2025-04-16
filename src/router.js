@@ -27,46 +27,16 @@ export default new Router({
         import( /* webpackChunkName: "about" */ "./views/Resume.vue")
     },
     {
-      path: "/blog",
-      name: "blog",
+      path: "/beyond_data",
+      name: "beyond data",
       component: () =>
-        import( /* webpackChunkName: "about" */ "./views/Blog.vue")
-    },
-    {
-      path: "/blog/:id",
-      name: "blogPost",
-      component: () =>
-        import( /* webpackChunkName: "about" */ "./views/BlogPost.vue")
-    },
-    {
-      path: "/services",
-      name: "services",
-      component: () =>
-        import( /* webpackChunkName: "about" */ "./views/Services.vue")
+        import( /* webpackChunkName: "about" */ "./views/BeyondData.vue")
     },
     {
       path: "/portfolio",
       name: "portfolio",
       component: () =>
-        import( /* webpackChunkName: "about" */ "./views/Portfolio/Portfolio.vue")
-    },
-    {
-      path: "/portfolio/video",
-      name: "videoPortfolio",
-      component: () =>
-        import( /* webpackChunkName: "about" */ "./views/Portfolio/Video.vue")
-    },
-    {
-      path: "/portfolio/graphic",
-      name: "graphicPortfolio",
-      component: () =>
-        import( /* webpackChunkName: "about" */ "./views/Portfolio/Graphic.vue")
-    },
-    {
-      path: "/portfolio/web",
-      name: "webPortfolio",
-      component: () =>
-        import( /* webpackChunkName: "about" */ "./views/Portfolio/Web.vue")
+        import( /* webpackChunkName: "about" */ "./views/Portfolio.vue")
     },
     {
       path: "*",

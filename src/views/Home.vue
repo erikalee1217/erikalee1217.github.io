@@ -1,29 +1,19 @@
 <template>
   <v-layout column justify-center align-center class="mt-4 pt-2">
     <VueCompareImage
-      class="hidden-md-and-down"
       hover
-      :style="{ minWidth: '1300px' }"
-      :sliderLineWidth="sliderLine"
-      :handleSize="hSize"
+      :style="{
+        width: $vuetify.breakpoint.mdAndUp ? '90vw' : '100%',
+        maxWidth: $vuetify.breakpoint.mdAndUp ? '1300px' : '400px'
+      }"
+      :sliderLineWidth="0"
+      :handleSize="0"
       :leftImage="leftImage"
       :rightImage="rightImage"
       :sliderPositionPercentage="sliderPosition"
     />
-    <VueCompareImage
-      class="hidden-lg-and-up"
-      hover
-      :style="{ maxWidth: '400px' }"
-      :sliderLineWidth="sliderLine"
-      :handleSize="hSize"
-      :leftImage="leftImage2"
-      :rightImage="rightImage2"
-      :sliderPositionPercentage="sliderPosition"
-    />
-
     <br>
-
-    <vue-typer class="headline" :repeat="0" text="Eldin Zaimovic"></vue-typer>
+    <vue-typer class="headline" :repeat="0" text="Erika Lee"></vue-typer>
     <vue-typer
       :text="text1"
       :repeat="Infinity"
@@ -31,7 +21,7 @@
       initial-action="erasing"
       :pre-type-delay="70"
       :type-delay="70"
-      :pre-erase-delay="1980"
+      :pre-erase-delay="2500"
       :erase-delay="150"
       erase-style="select-back"
       :erase-on-complete="false"
@@ -44,34 +34,32 @@
           <div>
             <h3 class="headline mb-0">
               <span>About</span>
-              <span class="green--text">Me</span>
+              <span class="teal--text"> Me</span>
             </h3>
             <div>
               <p>
-                Hello! I’m Eldin Zaimovic. I'm a front-end developer who
-                is passionate about
-                <span
-                  class="green--text font-weight-bold"
-                >VUE</span>, building great user experiences,
-                fighting for simplicity over complexity and constantly learning.
-                When I'm not coding or making videos, you'll find me traveling across Europe.
+                👋🏻 Hello! I’m Erika Lee, a master’s student in Information Management at UIUC focusing on
+                <span class="teal--text font-weight-bold">Data Engineering and Data Science</span>.
+                I enjoy turning complex datasets into meaningful solutions that make a real impact — like when I
+                built and optimized data pipelines at Micron Technology to help tech teams speed up troubleshooting.<br>
+                Outside of data and code, I’m a real explorer who's always looking for new experiences and challenges! 💖
               </p>
             </div>
           </div>
         </v-card-title>
 
-        <v-card-actions class="hidden-sm-and-down">
+        <v-card-actions class="hidden-sm-and-down justify-center">
           <v-btn
             v-for="icon in icons"
             :key="icon.icon"
             fab
             dark
             outline
-            color="green"
+            color="teal"
             :href="icon.href"
             target="_blank"
           >
-            <v-icon dark>{{icon.icon}}</v-icon>
+            <v-icon dark>{{ icon.icon }}</v-icon>
           </v-btn>
         </v-card-actions>
 
@@ -83,11 +71,11 @@
             fab
             dark
             outline
-            color="green"
+            color="teal"
             :href="icon.href"
             target="_blank"
           >
-            <v-icon dark>{{icon.icon}}</v-icon>
+            <v-icon dark>{{ icon.icon }}</v-icon>
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -102,20 +90,17 @@ import VueCompareImage from "vue-compare-image";
 export default {
   metaInfo: {
     title: "Home",
-    titleTemplate: "%s ← Eldin's Space",
+    titleTemplate: "%s | Erika's Data Travelogue",
     meta: [
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "description", content: "Eldin Zaimovic's Portfolio" },
+      { name: "description", content: "Erika Lee's portfolio showcasing data engineering, data science, and backend development projects" },
       { charset: "utf-8" },
-      { property: "og:title", content: "Eldin' Space" },
-      { property: "og:site_name", content: "Eldin' Space" },
+      { property: "og:title", content: "Erika's Data Travelogue" },
+      { property: "og:site_name", content: "Erika's Data Travelogue" },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://eldin.space" },
-      {
-        property: "og:image",
-        content: "https://i.imgur.com/Dcz2PGx.jpg"
-      },
-      { property: "og:description", content: "Eldin Zaimovic's Portfolio" }
+      { property: "og:url", content: "https://erikalee1217.github.io/" },
+      { property: "og:image", content: "https://i.imgur.com/qH0HBjD.png" },
+      { property: "og:description", content: "Erika Lee's portfolio showcasing data engineering, data science, and backend development projects" }
     ]
   },
   components: {
@@ -125,31 +110,14 @@ export default {
   data() {
     return {
       icons: [
-        { href: "https://github.com/EldinZaimovic", icon: "fab fa-github" },
-        {
-          href: "https://stackoverflow.com/users/story/9660700",
-          icon: "fab fa-stack-overflow"
-        },
-        { href: "https://twitter.com/EldinMatricar", icon: "fab fa-twitter" },
-        {
-          href: "https://www.linkedin.com/in/eldin-zaimovic",
-          icon: "fab fa-linkedin-in"
-        },
-        {
-          href: "https://www.xing.com/profile/Eldin_Zaimovic?sc_o=mxb_p",
-          icon: "fab fa-xing"
-        },
-        {
-          href: "https://www.facebook.com/EldinVasVoli",
-          icon: "fab fa-facebook-f"
-        },
-        { href: "https://www.instagram.com/matricar", icon: "fab fa-instagram" }
+        { href: "https://github.com/erikalee1217", icon: "fab fa-github" },
+        { href: "https://www.linkedin.com/in/i-hsuan-lee/", icon: "fab fa-linkedin-in" },
+        { href: "https://erika-lee.medium.com/", icon: "fab fa-medium" },
+        { href: "https://www.instagram.com/erika_lee1217/", icon: "fab fa-instagram" }
       ],
-      text1: ["Front-End Developer", "Web Developer", "Web Designer"],
-      leftImage: "https://i.imgur.com/bU50uS9.jpg",
-      rightImage: "https://i.imgur.com/z3ZoEEw.jpg",
-      leftImage2: "https://i.imgur.com/SXBitjh.jpg",
-      rightImage2: "https://i.imgur.com/Dcz2PGx.jpg",
+      text1: ["Data Engineer", "Data Scientist", "Backend Developer", "Curious Traveler"],
+      leftImage: "https://i.imgur.com/GH26rsk.png",
+      rightImage: "https://i.imgur.com/OjmNpOO.png",
       sliderLine: 0,
       hSize: 0,
       sliderPosition: 0.5
@@ -157,13 +125,13 @@ export default {
   }
 };
 </script>
+
 <style>
 @keyframes rocking {
   0%,
   100% {
     transform: rotateZ(-10deg);
   }
-
   50% {
     transform: rotateZ(10deg);
   }
@@ -173,21 +141,26 @@ export default {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 .vue-typer .custom.char.typed {
-  color: green;
+  color: teal;
 }
 .vue-typer .custom.char.selected {
-  color: #e91e63;
+  color: #424242;
 }
-
 .vue-typer .custom.caret {
   animation: rocking 1s ease-in-out 0s infinite;
 }
 .vue-typer .custom.caret.typing {
-  background-color: green;
+  background-color: teal;
 }
 .vue-typer .custom.caret.selecting {
   display: inline-block;
-  background-color: #e91e63;
+  background-color: #424242;
+}
+
+/* Hover effect for buttons */
+.v-btn:hover {
+  transform: scale(1.1);
+  background-color: rgba(0, 128, 128, 0.1); /* Light teal background */
+  transition: all 0.2s ease-in-out;
 }
 </style>
-

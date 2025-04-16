@@ -10,7 +10,8 @@
           enter-active-class="animated fadeIn fast"
           leave-active-class="animated fadeOut faster"
         >
-          <router-view></router-view>
+          <router-view>
+          </router-view>
         </transition>
       </v-container>
     </v-content>
@@ -26,20 +27,20 @@ export default {
   name: "App",
   metaInfo: {
     title: "Home",
-    titleTemplate: "%s ← Eldin's Space",
+    titleTemplate: "%s ← Erika's Data Travelogue",
     meta: [
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "description", content: "Eldin Zaimovic's Portfolio" },
+      { name: "description", content: "Erika's Portfolio" },
       { charset: "utf-8" },
-      { property: "og:title", content: "Eldin' Space" },
-      { property: "og:site_name", content: "Eldin' Space" },
+      { property: "og:title", content: "Erika' Data Travelogue" },
+      { property: "og:site_name", content: "Erika'S Data Travelogue" },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://eldin.space" },
+      { property: "og:url", content: "https://erikalee1217.github.io/" },
       {
         property: "og:image",
-        content: "https://i.imgur.com/Dcz2PGx.jpg"
+        content: "https://i.imgur.com/qH0HBjD.png"
       },
-      { property: "og:description", content: "Eldin Zaimovic's Portfolio" }
+      { property: "og:description", content: "Erika's Portfolio" }
     ]
   },
   components: {

@@ -1,9 +1,5 @@
 <template>
   <v-container grid-list-xl>
-    <h2 class="pl-4">
-      <span>Graphic</span>
-      <span class="green--text">Portfolio</span>
-    </h2>
     <v-layout row justify-center align-center wrap class="mt-4 pt-2">
       <v-dialog
         v-model="image.dialog"
@@ -36,28 +32,28 @@
 <script>
 export default {
   metaInfo: {
-    title: "Graphic Portfolio ",
-    titleTemplate: "%s ← Eldin's Space",
+    title: "Beyond Data ",
+    titleTemplate: "%s | Erika's Data Travelogue",
     meta: [
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         name: "description",
         content:
-          "Eldin Zaimovic's Graphic Adobe PhotoShop Logo Design Instagram Poster"
+          "Erika's interests and hobbies"
       },
       { charset: "utf-8" },
-      { property: "og:title", content: "Eldin' Space" },
-      { property: "og:site_name", content: "Eldin' Space" },
+      { property: "og:title", content: "Erika's Data Travelogue" },
+      { property: "og:site_name", content: "Erika's Data Travelogue" },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://eldin.space" },
+      { property: "og:url", content: "https://erikalee1217.github.io/" },
       {
         property: "og:image",
-        content: "https://i.imgur.com/Dcz2PGx.jpg"
+        content: "https://i.imgur.com/qH0HBjD.png"
       },
       {
         property: "og:description",
         content:
-          "Eldin Zaimovic's Graphic Adobe PhotoShop Logo Design Instagram Poster"
+          "Erika's interests and hobbies"
       }
     ]
   },
@@ -67,48 +63,33 @@ export default {
       images: [
         {
           dialog: false,
-          title: "VilaShirts Logo",
-          poster: "https://i.imgur.com/QEnmqcE.png"
+          title: "Photography - Capturing light and shadow 🔅",
+          poster: "https://i.imgur.com/2JDH4dh.jpg"
         },
         {
           dialog: false,
-          title: "BlackBird Property Group Logo",
-          poster: "https://i.imgur.com/b37FfUU.jpg"
+          title: "Travel - Wandering through seas and sunsets 🌅",
+          poster: "https://i.imgur.com/7lBMUtD.jpg"
         },
         {
           dialog: false,
-          title: "TeeLock Consulting Logo",
-          poster: "https://i.imgur.com/XSo4bmw.jpg"
+          title: "Violin - Finding harmony in violin strings 🎻",
+          poster: "https://i.imgur.com/9pUSNXN.jpg"
         },
         {
           dialog: false,
-          title: "SEA||WA||MMXI",
-          poster: "https://i.imgur.com/thxUnTH.jpg"
+          title: "Stargazing - Chasing stars on clear nights 🌌",
+          poster: "https://i.imgur.com/sLaJ5PO.jpg"
         },
         {
           dialog: false,
-          title: "Alpine365 Logo",
-          poster: "https://i.imgur.com/LOzW21e.jpg"
+          title: "Baking - Baking sweetness into life 🧁",
+          poster: "https://i.imgur.com/cvEE7xJ.jpg"
         },
         {
           dialog: false,
-          title: "Josefine Product Pack",
-          poster: "https://i.imgur.com/TrthgRN.jpg"
-        },
-        {
-          dialog: false,
-          title: "Next Party Flayer",
-          poster: "https://i.imgur.com/tYjfL2d.jpg"
-        },
-        {
-          dialog: false,
-          title: "VilaShirts T-Shirts",
-          poster: "https://i.imgur.com/ULuRuFB.jpg"
-        },
-        {
-          dialog: false,
-          title: "BAB Coin",
-          poster: "https://i.imgur.com/YU52AVB.jpg"
+          title: "Dancing - Moving to the rhythm with friends 💃🏻",
+          poster: "https://i.imgur.com/cC1wHwt.jpg"
         }
       ]
     };

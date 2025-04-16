@@ -4,125 +4,159 @@
       <h2 class="mb-4 pl-4 pt-2">Education</h2>
       <v-card-text class="py-0">
         <v-timeline align-top dense>
-          <v-timeline-item color="green" small>
+          <v-timeline-item color="#71bfbd" small>
             <v-layout pt-3>
               <v-flex xs4>
-                <div class="caption font-weight-bold green--text">JAN 2018 -</div>
-                <div class="caption font-weight-bold green--text">PRESENT</div>
+                <div class="caption font-weight-bold teal--text">AUG 2023 -</div>
+                <div class="caption font-weight-bold teal--text">PRESENT</div>
               </v-flex>
-              <v-flex class="pl-2">
-                <strong>Full Stack Web Development Course</strong>
-                <div class="caption mb-2">freeCodeCamp</div>
+              <v-flex xs12>
+                <strong>MS in Information Management</strong>
+                <div class="caption mb-2">University of Illinois at Urbana-Champaign, IL</div>
+                <p class="caption">
+                  Focused on Distributed Systems, Database Systems, Data Warehousing, Text Mining, and Statistical
+                  Models. Gained hands-on experience on LLM tuning and RAG
+                </p>
               </v-flex>
             </v-layout>
           </v-timeline-item>
 
-          <v-timeline-item color="green" small>
+          <v-timeline-item color="#0097A7" small>
             <v-layout pt-3>
               <v-flex xs4>
-                <div class="caption font-weight-bold green--text">SEP 2007 -</div>
-                <div class="caption font-weight-bold green--text">MAY 2014</div>
+                <div class="caption font-weight-bold teal--text">FEB 2022 -</div>
+                <div class="caption font-weight-bold teal--text">AUG 2022</div>
               </v-flex>
-              <v-flex class="pl-2">
-                <strong>Telecommunications Engineering</strong>
-                <div class="caption mb-2">University of East Sarajevo</div>
+              <v-flex xs12>
+                <strong>Exchange Student in Business and Economics</strong>
+                <div class="caption mb-2">KU Leuven, Belgium</div>
+                <p class="caption">
+                  Enhanced strategic problem-solving and presentation skills, reaching in the finalist (top 25%) at the Leuven Case
+                  Competition and the 5th in Lotus Group case
+                </p>
               </v-flex>
             </v-layout>
           </v-timeline-item>
 
-          <v-timeline-item color="green" small>
+          <v-timeline-item color="#006064" small>
             <v-layout pt-3>
               <v-flex xs4>
-                <div class="caption font-weight-bold green--text">SEP 2003 -</div>
-                <div class="caption font-weight-bold green--text">MAY 2007</div>
+                <div class="caption font-weight-bold teal--text">SEP 2017 -</div>
+                <div class="caption font-weight-bold teal--text">Jun 2022</div>
               </v-flex>
-              <v-flex class="pl-2">
-                <strong>Electrical Technician for Computers</strong>
-                <div class="caption mb-2">Electro-technical school Doboj</div>
+              <v-flex xs12>
+                <strong>BS in Information Management & Finance</strong>
+                <div class="caption mb-2">National Yang Ming Chiao Tung University, Taiwan</div>
+                <p class="caption">
+                  Built a strong foundation in Data Structures, Algorithms, Data Mining, and Database Management, while
+                  leading student initiatives as Vice President of the HSNU & ZSGH Alumni Association
+                </p>
               </v-flex>
             </v-layout>
           </v-timeline-item>
+
         </v-timeline>
       </v-card-text>
     </v-flex>
     <v-flex xs12 sm12 md4 lg6 xl6 class="mt-4 pt-2">
-      <h2 class="mb-4 pl-4">Experience</h2>
-      <v-card-text class="py-0">
-        <v-timeline align-top dense>
-          <v-timeline-item color="green" small>
-            <v-layout pt-3>
-              <v-flex xs4>
-                <div class="caption font-weight-bold green--text">DEC 2016 -</div>
-                <div class="caption font-weight-bold green--text">PRESENT</div>
-              </v-flex>
-              <v-flex class="pl-2">
-                <strong>Freelance Frontend Developer</strong>
-                <div class="caption mb-2">Remote</div>
-              </v-flex>
-            </v-layout>
-          </v-timeline-item>
+    <h2 class="mb-4 pl-4">Experience</h2>
+    <v-card-text class="py-0">
+      <v-timeline align-top dense>
+        <v-timeline-item color="#71bfbd" small>
+          <v-layout pt-3>
+            <v-flex xs4>
+              <div class="caption font-weight-bold teal--text">Jul 2024 -</div>
+              <div class="caption font-weight-bold teal--text">Aug 2024</div>
+            </v-flex>
+            <v-flex xs12>
+              <strong>Data Engineer Intern</strong>
+              <div class="caption mb-2">Micron Technology</div>
+              <p class="caption">
+                Developed an API with <b>FastAPI</b>, <b>Python</b> and <b>GKE</b>, cutting troubleshooting time by <b>20%
+              </b>, and optimized <b>DBT</b> and <b>SQL ETL pipelines</b> with <b>CI/CD</b> for reliable data flows
+              </p>
+            </v-flex>
+          </v-layout>
+        </v-timeline-item>
 
-          <v-timeline-item color="green" small>
-            <v-layout pt-3>
-              <v-flex xs4>
-                <div class="caption font-weight-bold green--text">FEB 2018 -</div>
-                <div class="caption font-weight-bold green--text">JULY 2018</div>
-              </v-flex>
-              <v-flex class="pl-2">
-                <strong>Teacher for electrical technicians</strong>
-                <div class="caption mb-2">High School Doboj Istok</div>
-              </v-flex>
-            </v-layout>
-          </v-timeline-item>
+        <v-timeline-item color="#0097A7" small>
+          <v-layout pt-3>
+            <v-flex xs4>
+              <div class="caption font-weight-bold teal--text">Jan 2024 -</div>
+              <div class="caption font-weight-bold teal--text">May 2024</div>
+            </v-flex>
+            <v-flex xs12>
+              <strong>LLM Graduate Research Assistant</strong>
+              <div class="caption mb-2">Amazon-Illinois AICE Center, UIUC</div>
+              <p class="caption">
+                Improved AI accuracy by <b>25%</b> with <b>RAG</b> and self-critique pipelines, and reduced processing
+                time by <b>20%</b> using parallel computing on <b>Mixtral 7x8b</b> model
+              </p>
+            </v-flex>
+          </v-layout>
+        </v-timeline-item>
 
-          <v-timeline-item color="green" small>
-            <v-layout pt-3>
-              <v-flex xs4>
-                <div class="caption font-weight-bold green--text">AUG 2014 -</div>
-                <div class="caption font-weight-bold green--text">APR 2016</div>
-              </v-flex>
-              <v-flex class="pl-2">
-                <strong>IT Technician</strong>
-                <div class="caption mb-2">MFS-EMMAUS</div>
-              </v-flex>
-            </v-layout>
-          </v-timeline-item>
-        </v-timeline>
-      </v-card-text>
+        <v-timeline-item color="#006064" small>
+          <v-layout pt-3>
+            <v-flex xs4>
+              <div class="caption font-weight-bold teal--text">Sep 2019 -</div>
+              <div class="caption font-weight-bold teal--text">Aug 2020</div>
+            </v-flex>
+            <v-flex xs12>
+              <strong>Big Data Analytics Research Assistant</strong>
+              <div class="caption mb-2">NYCU Center for Institutional Research</div>
+              <p class="caption">
+                Analyzed <b>1M records</b> with <b>Python</b> and <b>Pandas</b> for actionable insights, and increase
+                the reporting generation speed by <b>30%</b> with <b>Tableau</b> dashboards
+              </p>
+            </v-flex>
+          </v-layout>
+        </v-timeline-item>
+      </v-timeline>
+    </v-card-text>
     </v-flex>
     <v-layout row justify-center align-center wrap class="mt-4 pt-2">
-      <v-flex xs12 sm12 md4 lg5 xl5 class="mx-2 pt-4">
+      <v-flex xs12 sm12 md4 lg5 xl5 class="mx-4 pt-4">
         <h2>
-          <span>Design</span>
-
-          <span class="green--text">Skills</span>
+          <span>Skills </span>
         </h2>
         <br>
-        <strong>Photoshop</strong>
-        <v-progress-linear v-model="buffer1" :buffer-value="bufferValue" color="green" height="16"></v-progress-linear>
-        <strong>Adobe XD</strong>
-        <v-progress-linear v-model="buffer2" :buffer-value="bufferValue" color="green" height="16"></v-progress-linear>
-        <strong>Zeplin</strong>
-        <v-progress-linear v-model="buffer3" :buffer-value="bufferValue" color="green" height="16"></v-progress-linear>
+        <strong>Programming</strong>
+        <span> - Python, SQL</span>
+        <strong class="right">5 years</strong>
+        <v-progress-linear v-model="buffer1" :buffer-value="bufferValue" color="#71bfbd" height="16"></v-progress-linear>
+        <strong>Databases</strong>
+        <span> - MySQL, PostgreSQL </span>
+        <strong class="right">3 years</strong>
+        <v-progress-linear v-model="buffer2" :buffer-value="bufferValue" color="#71bfbd" height="16"></v-progress-linear>
+        <strong>Cloud & Big Data</strong>
+        <span> - GCP, AWS, Docker, Kubernetes, Airflow, Kafka</span>
+        <strong class="right">2 years</strong>
+        <v-progress-linear v-model="buffer3" :buffer-value="bufferValue" color="#71bfbd" height="16"></v-progress-linear>
       </v-flex>
-      <v-flex xs12 sm12 md4 lg5 xl5 class="mx-2 pt-4">
+      <v-flex xs12 sm12 md4 lg5 xl5 class="mx-4 pt-4">
         <h2>
-          <span>Coding</span>
-          <span class="green--text">Skills</span>
+          <span><br></span>
         </h2>
         <br>
-        <strong>VUE/NUXT</strong>
-        <v-progress-linear v-model="buffer4" :buffer-value="bufferValue" color="green" height="16"></v-progress-linear>
-        <strong>HTML/CSS</strong>
-        <v-progress-linear v-model="buffer5" :buffer-value="bufferValue" color="green" height="16"></v-progress-linear>
-        <strong>JavaScript</strong>
-        <v-progress-linear v-model="buffer6" :buffer-value="bufferValue" color="green" height="16"></v-progress-linear>
+        <strong>ML & Stats</strong>
+        <span> - Scikit-learn, Regression, Classification</span>
+        <strong class="right">4 years</strong>
+        <v-progress-linear v-model="buffer4" :buffer-value="bufferValue" color="#71bfbd" height="16"></v-progress-linear>
+        <strong>Development Tools</strong>
+        <span> - Git, RESTful API, Node.js</span>
+        <strong class="right">3 years</strong>
+        <v-progress-linear v-model="buffer5" :buffer-value="bufferValue" color="#71bfbd" height="16"></v-progress-linear>
+        <strong>Data Visualization & Analytics</strong>
+        <span> - Tableau, PowerBI, Excel</span>
+        <strong class="right">3 years</strong>
+        <v-progress-linear v-model="buffer6" :buffer-value="bufferValue" color="#71bfbd" height="16"></v-progress-linear>
       </v-flex>
       <div class="mt-4 pt-2">
         <v-btn
-          href="https://docs.google.com/document/d/1WSR42FEgUahJuR_RArW1wz7TfUBlgj13zekRidmQgs4/edit?usp=sharing"
+          href="https://drive.google.com/file/d/1kRHvJJijzIud0yVFdhoe7lTkJboMqH4T/view?usp=sharing"
           target="_blank"
-          color="green"
+          color="#71bfbd"
           dark
           large
         >
@@ -138,7 +172,7 @@
 export default {
   metaInfo: {
     title: "Resume",
-    titleTemplate: "%s ← Eldin's Space",
+    titleTemplate: "%s | Erika's Data Travelogue",
     meta: [
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
@@ -147,13 +181,13 @@ export default {
           "Vue NUXT HTML CSS JavaScript Design Adobe XD Photoshop Coding Skills Resume Work Web Developer Front-End"
       },
       { charset: "utf-8" },
-      { property: "og:title", content: "Eldin' Space" },
-      { property: "og:site_name", content: "Eldin' Space" },
+      { property: "og:title", content: "Erika's Data Travelogue" },
+      { property: "og:site_name", content: "Erika's Data Travelogue" },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://eldin.space" },
+      { property: "og:url", content: "https://erikalee1217.github.io/" },
       {
         property: "og:image",
-        content: "https://i.imgur.com/Dcz2PGx.jpg"
+        content: "https://i.imgur.com/qH0HBjD.png"
       },
       {
         property: "og:description",
@@ -186,12 +220,12 @@ export default {
   methods: {
     startBuffer() {
       this.interval = setInterval(() => {
-        this.buffer1 = 90;
-        this.buffer2 = 85;
-        this.buffer3 = 80;
-        this.buffer4 = 80;
-        this.buffer5 = 90;
-        this.buffer6 = 70;
+        this.buffer1 = 95;
+        this.buffer2 = 80;
+        this.buffer3 = 65;
+        this.buffer4 = 85;
+        this.buffer5 = 75;
+        this.buffer6 = 75;
       }, 800);
     }
   }

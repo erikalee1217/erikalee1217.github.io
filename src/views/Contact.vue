@@ -3,41 +3,36 @@
     <v-layout row justify-center align-center wrap class="mt-4 pt-2">
       <v-flex xs12 sm12 md6 lg6 xl6>
         <h2 class="pb-4 mt-2">
-          <span>GetIn</span>
-          <span class="green--text">Touch</span>
+          <span>Get In</span>
+          <span class="teal--text"> Touch</span>
         </h2>
         <div class="py-4 subheading font-weight-bold">
-          <v-icon large color="green" left>fas fa-map-marker-alt</v-icon>
-          <span>Doboj,&nbsp;</span>
-          <span class="green--text">Bosnia & Herzegovina</span>
+          <v-icon large color="teal" left>fas fa-map-marker-alt</v-icon>
+          <span>Champaign, IL |&nbsp;</span>
+          <span class="teal--text">Sunnyvale, CA</span>
         </div>
         <div class="py-4 subheading font-weight-bold">
-          <v-icon large color="green" left>fas fa-envelope</v-icon>
-          <span>eldin@</span>
-          <span class="green--text">zaimovic.com</span>
+          <v-icon large color="teal" left>fas fa-envelope</v-icon>
+          <span>ihsuan.lee1217@</span>
+          <span class="teal--text">gmail.com</span>
         </div>
         <div class="py-4 subheading font-weight-bold">
-          <v-icon large color="green" left>fas fa-phone</v-icon>
-          <span>+387&nbsp;</span>
-          <span class="green--text">61 596 676</span>
-        </div>
-        <div class="py-4 subheading font-weight-bold">
-          <v-icon large color="green" left>fas fa-check</v-icon>
-          <span>Freelance</span>
-          <span class="green--text">Available</span>
+          <v-icon large color="teal" left>fas fa-phone</v-icon>
+          <span>+1 (213)&nbsp;</span>
+          <span class="teal--text">272 8601</span>
         </div>
       </v-flex>
 
       <v-flex xs12 sm12 md6 lg6 xl6>
         <h2 class="pb-4 mb-4">
           <span>Contact</span>
-          <span class="green--text">Form</span>
+          <span class="teal--text"> Form</span>
         </h2>
 
-        <form method="POST" action="https://formspree.io/eldin@zaimovic.com">
+        <form method="POST" action="https://formspree.io/f/mwpllkoa">
           <v-text-field
             name="name"
-            color="green"
+            color="teal"
             background-color="transparent"
             v-model="name"
             :error-messages="nameErrors"
@@ -47,7 +42,7 @@
           ></v-text-field>
           <v-text-field
             type="email"
-            color="green"
+            color="teal"
             background-color="transparent"
             name="email"
             v-model="email"
@@ -57,7 +52,7 @@
             @blur="$v.email.$touch()"
           ></v-text-field>
           <v-textarea
-            color="green"
+            color="teal"
             background-color="transparent"
             :counter="200"
             :error-messages="bodyErrors"
@@ -69,7 +64,7 @@
           <v-btn
             @click="submit"
             type="submit"
-            color="green"
+            color="teal"
             class="white--text"
             :disabled=" (body.length<=20)"
           >SEND MESSAGE</v-btn>
@@ -91,27 +86,27 @@ import {
 export default {
   metaInfo: {
     title: "Contact",
-    titleTemplate: "%s ← Eldin's Space",
+    titleTemplate: "%s | Erika's Data Travelogue",
     meta: [
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         name: "description",
         content:
-          "Eldin Zaimovic's Contact Doboj Bosnia and Herzegovina Freelance Get in Touch ContactMe"
+          "Erika's Contact"
       },
       { charset: "utf-8" },
-      { property: "og:title", content: "Eldin' Space" },
-      { property: "og:site_name", content: "Eldin' Space" },
+      { property: "og:title", content: "Erika's Data Travelogue" },
+      { property: "og:site_name", content: "Erika's Data Travelogue" },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://eldin.space" },
+      { property: "og:url", content: "https://erikalee1217.github.io/" },
       {
         property: "og:image",
-        content: "https://i.imgur.com/Dcz2PGx.jpg"
+        content: "https://i.imgur.com/qH0HBjD.png"
       },
       {
         property: "og:description",
         content:
-          "Eldin Zaimovic's Contact Doboj Bosnia and Herzegovina Freelance Get in Touch ContactMe"
+          "Erika's Contact"
       }
     ]
   },
