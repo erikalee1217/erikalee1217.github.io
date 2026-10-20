@@ -1,0 +1,22 @@
+:root {
+  --paper: #f7f5f0;
+  --ink: #394b5b;
+  --muted: #596570;
+  --wash: #e9edf0;
+  --photo-paper: #e9e6df;
+  --accent: #72604f;
+  --line: #d1d5d7;
+  --white: #fffdf7;
+  --font-heading: Charter, 'Bitstream Charter', 'Sitka Text', Georgia, serif;
+  --font-body: 'Gill Sans', 'Gill Sans MT', Calibri, 'Segoe UI', sans-serif;
+  --page-width: 1120px;
+  --gutter: clamp(24px, 5vw, 72px);
+  --space-1: .5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4rem;
+  --space-7: 6rem;
+  --space-8: 8rem;
+}

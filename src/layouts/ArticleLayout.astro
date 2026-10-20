@@ -1,0 +1,39 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import type { CollectionEntry } from 'astro:content';
+interface Props { article: CollectionEntry<'articles'> }
+const { article } = Astro.props;
+const { title, description, publicationDate, series } = article.data;
+---
+<BaseLayout title={`${title} — Erika Lee`} description={description}>
+  <div class="wrap">
+    <article class="article">
+      <header>
+        <a class="text-link" href="/writing">← Writing</a>
+        {series && <p class="series">{series}</p>}
+        <h1>{title}</h1>
+        {publicationDate && <p class="date"><time datetime={publicationDate.toISOString()}>{publicationDate.toLocaleDateString('en', {year:'numeric',month:'long',day:'numeric',timeZone:'UTC'})}</time></p>}
+      </header>
+      <div class="article-body"><slot /></div>
+    </article>
+  </div>
+</BaseLayout>
+<style>
+.article { max-width:min(700px, 72ch); margin-inline:auto; text-align:left; padding-block:24px 64px; font-size:18px; line-height:1.7; overflow-wrap:anywhere; }
+h1 { font-size:clamp(2.3rem,4.5vw,3.5rem); margin:24px 0 20px; }
+.series { color:var(--muted); font-size:.85rem; margin-top:20px; }
+.date { color:var(--muted); }
+.date { font-size:.85rem; margin-top:12px; }
+.article-body { margin-top:24px; }
+.article-body :global(h2) { font-size:1.8rem; margin:36px 0 16px; }
+.article-body :global(h3) { font-size:1.3rem; margin:28px 0 12px; }
+.article-body :global(p + p) { margin-top:14px; }
+.article-body :global(ul),.article-body :global(ol) { padding-left:1.5em; }
+.article-body :global(li + li) { margin-top:8px; }
+.article-body :global(img) { display:block; max-width:100%; height:auto; margin-block:24px; }
+.article-body :global(pre) { max-width:100%; overflow-x:auto; padding:20px; font-size:.88rem; line-height:1.6; }
+.article-body :global(:not(pre) > code) { font-size:.9em; background:var(--wash); padding:.1em .25em; }
+.article-body :global(blockquote) { margin:20px 0; padding-left:16px; border-left:2px solid var(--line); color:var(--muted); }
+.article-body :global(pre:focus-visible) { outline:2px solid var(--accent); outline-offset:4px; }
+@media(max-width:560px) { .article { font-size:17px; } }
+</style>

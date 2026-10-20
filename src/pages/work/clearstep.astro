@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import cover from '../../assets/projects/clearstep-cover-en.png';
+import brainDump from '../../assets/projects/clearstep/brain-dump.png';
+import review from '../../assets/projects/clearstep/review.png';
+import startHere from '../../assets/projects/clearstep/start-here.png';
+import focus from '../../assets/projects/clearstep/focus-mode.png';
+const source = 'https://github.com/erikalee1217/clearstep/blob/24af9a98c5a8933fd5ad8de642ec83323786d8b5/';
+const journey = [
+ {title:'Brain Dump', image:brainDump, alt:'ClearStep Brain Dump screen with free-form thoughts in a text field and a Find tasks button.', paragraphs:["Your note can include tasks mixed with worries or background information. The model tries to identify actions from that text and turn them into task drafts."]},
+ {title:'Review', image:review, alt:'ClearStep Review screen with task inclusion checkboxes, editable first steps, deadlines, and importance controls.', paragraphs:["Before anything is saved, you can review what the model extracted. You can remove tasks that don't belong, fix deadlines, or edit the first steps.", "The original Brain Dump stays available for comparison, so you can see whether the extracted tasks match what you meant. Nothing is added to your list until you confirm it."]},
+ {title:'Start Here', image:startHere, alt:'ClearStep Start Here screen recommending a job application task, with a deadline reason and alternative tasks below.', paragraphs:["Once tasks are confirmed, ClearStep recommends one to start with.", "A Python ranking function decides the order based on deadlines, importance, and start friction. The app gives a short reason for its recommendation, and other tasks remain available if you'd rather start somewhere else.", "It's a starting point, not an obligation."]},
+ {title:'Focus Mode', image:focus, alt:'ClearStep Focus Mode showing one task, its first step, an optional timer, and separate controls for ending a session and completing the task.', paragraphs:["Focus Mode brings the chosen task and its first step into view. There's an optional timer for short work sessions, and you can stop a session without marking the task complete.", "I kept those actions separate because making progress on something doesn't always mean finishing it."]}
+];
+---
+<BaseLayout title="ClearStep — Erika Lee" description="A case study of an AI-assisted task app: structured extraction, user review, deterministic ranking, and semantic evaluation.">
+<article class="wrap case-study">
+  <header class="case-heading">
+    <a class="text-link" href="/work">← All work</a>
+    <p class="eyebrow">Applied AI · Case study</p>
+    <h1>ClearStep</h1>
+    <p class="subtitle">Turning a tangle of thoughts into a task you can start.</p>
+    <p class="tools">React · TypeScript · FastAPI · Python · OpenAI API · Pydantic</p>
+    <a class="text-link repository" href="https://github.com/erikalee1217/clearstep">View the project on GitHub ↗</a>
+  </header>
+  <figure class="cover"><Image src={cover} alt="Composite promotional cover based on the ClearStep UI, combining the project name and tagline with an illustrative task interface." widths={[640,960,1584]} sizes="(max-width: 700px) 90vw, 630px" /><figcaption>Promotional composite based on the ClearStep UI; the product screenshots below show the application itself.</figcaption></figure>
+  <section class="prose"><h2>The idea</h2>
+<p>A task list usually starts after the hard part: figuring out what actually needs to be done.</p>
+<p>Sometimes you have a dozen things on your mind, but they aren't all tasks. There might be an upcoming interview, something you've been putting off, or just a thought you don't want to forget. Turning all of that into a proper to-do list can feel like another task in itself.</p>
+<p>That's why I built ClearStep. You can write down whatever's on your mind, let the app pull out possible tasks, and decide which ones actually belong on your list. From there, it helps you choose something to start with.</p>
+<p>The idea was to let AI handle some of the organizing while keeping the decisions in the user's hands.</p>
+  </section>
+  <section><div class="prose"><h2>How it works</h2><p>ClearStep has four stages: Brain Dump, Review, Start Here, and Focus Mode.</p></div>
+    <div class="journey">{journey.map((step,i)=><section class="journey-step"><div class="prose"><h3>{i+1}. {step.title}</h3>{step.paragraphs.map(paragraph => <p>{paragraph}</p>)}</div><figure><a href={step.image.src} aria-label={`View full-size ${step.title} screenshot`}><Image src={step.image} alt={step.alt} widths={[480,800,1200]} sizes="(max-width: 700px) 90vw, 630px" loading="lazy" /></a><figcaption>Product screenshot · {step.title}. Select to view full size.</figcaption></figure></section>)}</div>
+  </section>
+<section class="prose"><h2>Under the hood</h2>
+<p>The frontend is built with React and TypeScript. It handles the four screens and saves confirmed tasks in the browser using localStorage.</p>
+<p>FastAPI handles two main operations: task extraction and ranking.</p>
+<p>For extraction, the backend sends the Brain Dump to the OpenAI API along with the current local date and timezone. The model returns structured JSON, which Pydantic validates before the frontend receives it.</p>
+<p>Each task draft has a title and importance level. It can also include a deadline and a first step, along with a field indicating whether that step came from the user or was suggested by the model.</p>
+<p>I handle date-only deadlines separately from deadlines with specific times. "Finish this by Friday" and "submit this by Friday at 5 PM" need different representations, especially when the ranking function later checks how urgent a task is.</p>
+<p>If the response fails validation, the API returns an error instead of accepting incomplete task data.</p>
+<p>Once the user confirms the selected drafts, the app assigns task IDs and creation timestamps. Only confirmed tasks are saved and sent to ranking.</p>
+<p>The backend has no persistent task database. Confirmed tasks stay in the browser, and the current list is sent to the ranking endpoint whenever the order needs updating.</p>
+<p>There's one privacy tradeoff worth mentioning. Saved tasks are browser-local, but the Brain Dump is sent to OpenAI for extraction. There's also no account sync, so your saved list won't follow you to another browser.</p>
+</section>
+<section class="prose"><h2>Engineering decisions</h2>
+<h3>Keeping extraction and ranking separate</h3>
+<p>I didn't want the LLM deciding which task should come first.</p>
+<p>The model is useful for interpreting messy language, but ranking introduces a different problem. I need to understand why a task was recommended and be able to reproduce that decision when testing the app.</p>
+<p>So I use the model to extract possible tasks. Once the user confirms them, a separate Python function handles their order.</p>
+<p>Urgent deadlines come first. A date-only deadline becomes urgent on its due date, while a deadline with a specific time becomes urgent within 24 hours. Overdue tasks remain urgent.</p>
+<p>For the remaining tasks, the function considers importance, start friction, and deadlines within the next seven days. Creation time helps break ties, and equal ranking keys preserve input order.</p>
+<p>The function returns short explanations such as "Due within 7 days" or "Low start friction." Because the ranking uses explicit rules, I can test it independently of the model and reproduce the same result with the same inputs and time context.</p>
+<h3>Being careful with deadlines and first steps</h3>
+<p>A tricky part of extraction was deciding when the model should leave information blank.</p>
+<p>Take "I'll work on my portfolio tonight." That says when someone plans to work, but it doesn't establish a completion deadline. I made this distinction explicit in the prompt and left ambiguous dates unset.</p>
+<p>An interview date is another example. If someone says they have an interview on Friday and need to prepare, that doesn't automatically make Friday the preparation task's deadline. The person would need to specify that separately.</p>
+<p>First steps needed similar care. When the user provides a starting action, I preserve it. Otherwise, the model can suggest a small step if it would make the task easier to begin.</p>
+<p>A suggestion should actually help, though. "Open your laptop" is technically easy, but it doesn't move most tasks forward. When the model doesn't have enough context to suggest something useful, it's better to leave that field empty.</p>
+</section>
+<section class="prose"><h2>Testing and evaluation</h2>
+<p>Valid JSON was the easy part to test. The harder question was whether the model understood the note correctly.</p>
+<p>I wrote offline tests for the application logic and a separate set of semantic checks that call the model. When I last ran the offline suites, <strong>117 backend tests and 22 frontend tests passed</strong>. These cover validation, ranking behavior, and frontend task handling.</p>
+<p>For live extraction, I tested inputs against expected behavior. The initial baseline passed <strong>43 out of 45 automated checks</strong>.</p>
+<p>In one failed case, the model extracted a feeling as though it were a task. In another, it treated a first step provided by the user as a model-generated suggestion. Both showed where the extraction instructions needed to be more specific.</p>
+<p>After a targeted prompt update, I ran 12 additional cases. <strong>Ten passed the automated strict checks</strong>, while the remaining two needed closer review.</p>
+<p>The runs used different test sets, so I don't treat the results as a direct before-and-after accuracy comparison. They were useful for checking specific behaviors after changes to the prompt.</p>
+<p>I documented the evaluation process in an <a href={`${source}backend/evaluation/README.md`}>Evaluation Guide</a>, including how I separate automated failures from cases that need manual judgment.</p>
+</section>
+<section class="prose"><h2>Reflections &amp; limitations</h2>
+<p>Pydantic can tell me whether a deadline has the right format. It can't tell me whether the user actually meant to set that deadline.</p>
+<p>I could make ranking deterministic and test exactly how it behaves. Extraction was harder. Even with structured outputs and detailed instructions, there's still a chance that the model will misunderstand part of a note.</p>
+<p>That affected where I drew the boundaries in ClearStep. I kept Review in the workflow so people could correct the output, and I limited the model's role to extracting possible tasks.</p>
+<p>The current evaluation is fairly small, and the ranking rules won't suit everyone's priorities. Browser-local storage also limits how people can use the app across devices.</p>
+<p>If I continue developing ClearStep, I'd like to focus first on testing extraction against a broader range of real-world notes. That would give me a clearer picture of where the current approach works well and where it still breaks down.</p>
+</section>
+</article>
+</BaseLayout>
+<style>
+.case-study { padding-block:24px 64px; font-size:18px; line-height:1.7; text-align:left; overflow-wrap:anywhere; }
+.case-heading { max-width:min(700px, 70ch); margin:0 auto 32px; }
+.case-heading .eyebrow { margin-top:24px; }
+h1 { font-size:clamp(3rem,6vw,4.5rem); margin-block:8px 16px; }
+.subtitle { font-size:clamp(1.25rem,2.5vw,1.6rem); line-height:1.45; }
+.repository { margin-top:16px; }
+img { display:block; width:100%; height:auto; }
+.cover { max-width:min(700px, 70ch); margin-inline:auto; }
+.journey-step > figure { max-width:min(700px, 70ch); margin-inline:auto; }
+figcaption { color:var(--muted); font-size:.82rem; margin-top:10px; line-height:1.5; }
+.prose { max-width:min(700px, 70ch); margin-inline:auto; }
+.technical { max-width:none; }
+.technical > p { max-width:70ch; }
+.case-study > section,.sources { margin-top:40px; }
+h2 { font-size:clamp(1.6rem,2.6vw,2rem); margin-bottom:16px; }
+.prose p + p { margin-top:18px; }
+.prose h3 { font-size:1.25rem; margin:24px 0 10px; }
+.journey { display:grid; grid-template-columns:1fr; gap:32px; margin-top:28px; }
+.journey-step { min-width:0; }
+.journey-step p { font-size:1rem; color:var(--muted); margin:12px 0 20px; }
+.architecture { margin-block:26px; padding:24px; background:var(--wash); max-width:960px; }
+.flow { display:grid; grid-template-columns:1.2fr 1fr 1.2fr; gap:28px; margin:0; padding-left:22px; }
+.flow > li { min-width:0; }
+.flow-stage { display:block; font-size:.85rem; font-weight:600; margin-bottom:14px; }
+.flow ol { list-style:decimal; margin:0; padding-left:20px; font-size:1rem; }
+.flow ol li + li { margin-top:8px; }
+.flow ol li:not(:last-child)::after { content:'↓'; display:block; color:var(--muted); }
+.results { margin:24px 0; }
+.results > div + div { margin-top:20px; }
+dt { font-weight:600; }
+dd { margin:4px 0 0; color:var(--muted); }
+.sources p { font-size:.9rem; color:var(--muted); }
+.sources h2 { font-size:1.3rem; }
+@media(max-width:700px) { .case-study { font-size:17px; } .flow { grid-template-columns:1fr; gap:24px; } .journey { grid-template-columns:1fr; } .case-study > section,.sources { margin-top:36px; } }
+</style>
