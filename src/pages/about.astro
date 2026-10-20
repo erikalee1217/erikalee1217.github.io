@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import paris from '../assets/about/paris-portrait.jpg';
+import snowman from '../assets/about/snowman-sunset.png';
+import dog from '../assets/about/dog.jpg';
+const photos = [
+  { key: 'a', src: paris, alt: 'Erika wearing a gray scarf overlooking Paris, with the Eiffel Tower in the distance.' },
+  { key: 'b', src: snowman, alt: 'Erika holding a small snowman beneath an orange sunset, with snow and tall trees behind her.' },
+  { key: 'c', src: dog, alt: 'A light-colored dog with bright eyes and a red harness beside green ferns.' },
+];
+---
+<BaseLayout title="About — Erika Lee" description="A little about Erika, her background in information management and data science, and her interests beyond tech.">
+  <article class="about wrap" aria-labelledby="about-title">
+    <div class="about-copy">
+      <h1 id="about-title">A little about me</h1>
+      <p>Hi, I'm Erika! 👋</p>
+      <p>I studied information management and data science. Lately, I've been drawn to NLP and LLMs because I'm curious about how machines make sense of the way people actually use language. Human language can be surprisingly ambiguous, which is part of what makes it so interesting to me.</p>
+      <p>During my internship, I worked on tools that helped engineers investigate problems in their workflows. I enjoyed building something that could make someone else's work a little easier. </p>
+      <p>Outside of tech, I love exploring cities and taking photos of little things that catch my eye. I especially like rainy days, watching how some people rush for shelter while others just keep walking. I enjoy noticing those small moments in everyday life.</p>
+      <p>This site is where I share what I've been working on, things I've learned, and a few bits of everyday life!</p>
+
+    </div>
+    <div class="photos">
+      {photos.map(photo => <div class={`photo photo-${photo.key}`}>
+        <Image src={photo.src} alt={photo.alt} widths={[320,640,960]} sizes={photo.key === 'a' ? '(max-width: 800px) 75vw, 34vw' : '(max-width: 800px) 44vw, 23vw'} loading={photo.key === 'a' ? 'eager' : 'lazy'} />
+      </div>)}
+    </div>
+  </article>
+</BaseLayout>
+<style>
+  .about { display:grid; grid-template-columns:minmax(0,58fr) minmax(0,42fr); gap:clamp(24px,4vw,48px); align-items:start; padding-block:24px 64px; font-size:18px; line-height:1.7; }
+  .about-copy,.photos { min-width:0; }
+  h1 { font-size:clamp(2.7rem,5vw,4.3rem); margin-bottom:28px; }
+  p + p { margin-top:20px; }
+  .photos { display:grid; grid-template-columns:minmax(0,58fr) minmax(0,42fr); gap:16px; align-items:start; width:100%; max-width:360px; justify-self:end; }
+  .photo { min-width:0; overflow:hidden; }
+  .photo-a { grid-column:1/-1; width:84%; justify-self:end; aspect-ratio:4/5; }
+  .photo-c { aspect-ratio:1/1; }
+  .photo img { display:block; width:100%; height:auto; }
+  .photo-a img { height:100%; object-fit:cover; object-position:50% 100%; }
+  .photo-c img { height:100%; object-fit:cover; object-position:50% 65%; }
+  @media(max-width:800px) {
+    .about { grid-template-columns:1fr; gap:32px; }
+  }
+  @media(max-width:560px) {
+    .about { font-size:17px; padding-bottom:48px; }
+    .photos { gap:14px; max-width:320px; justify-self:center; }
+  }
+</style>

@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import clearstepCover from '../assets/projects/clearstep-cover-en.png';
+import yosemite from '../assets/home/yosemite-backview.png';
+const heroPhoto = { src: yosemite, alt: 'Erika seen from behind on a snowy Yosemite trail, looking toward a waterfall framed by pine trees and granite cliffs' };
+import rainyBusStop from '../assets/photography/rainy-bus-stop.png';
+import sunsetBeach from '../assets/photography/sunset-beach.png';
+import seaArch from '../assets/photography/sea-arch.png';
+const photographyPreview = [
+  { src: rainyBusStop, alt: 'People waiting beneath a bus-stop shelter at night, with city lights reflected on the rain-soaked street.' },
+  { src: sunsetBeach, alt: 'Two people silhouetted beside the waves beneath a golden sunset.' },
+  { src: seaArch, alt: 'Waves flowing beneath a rocky sea arch under a pale evening sky.' },
+];
+import { featuredProject, secondaryProjects, writingSeries } from '../data/home';
+---
+<BaseLayout>
+  <section class:list={["hero wrap", { "hero-with-photo": heroPhoto }]} id="home" aria-labelledby="intro-title">
+    <div class="hero-main">
+      <p class="eyebrow">Data Science · Applied AI · Software Engineering</p>
+      <h1 id="intro-title">Hi, I'm Erika.</h1>
+      <p class="hero-framing">I like working with data and figuring out how things work.</p>
+      <p class="hero-secondary">I also enjoy building software, especially when it makes someone's day a little easier.</p>
+      <p class="intro">When I'm not at my desk, I'm probably out walking around a city or taking photos.</p>
+      <a class="text-link" href="#work">See selected work <span aria-hidden="true">↓</span></a>
+    </div>
+    {heroPhoto && <figure class="hero-photo"><Image src={heroPhoto.src} alt={heroPhoto.alt} widths={[360, 640, 960, 1200]} sizes="(max-width: 560px) 88vw, (max-width: 800px) 416px, 38vw" loading="eager" /></figure>}
+  </section>
+  <section class="work-section section" id="work" aria-labelledby="work-title">
+    <div class="wrap">
+    <div class="section-heading"><h2 id="work-title">Selected work</h2><a class="text-link" href="/work">All projects <span aria-hidden="true">→</span></a></div>
+    <article class="featured-project" aria-labelledby="clearstep-title">
+      <figure class="project-cover">
+        <a class="clearstep-cover-link" href={clearstepCover.src} aria-label="View the full-size ClearStep promotional cover">
+        <Image
+          src={clearstepCover}
+          alt="Composite promotional cover based on the ClearStep UI, with the ClearStep name, the tagline ‘From scattered thoughts to a clear next step,’ and a task review interface."
+          widths={[480, 800, 1200, clearstepCover.width]}
+          sizes="(max-width: 800px) 90vw, (min-width: 1280px) 600px, 50vw"
+          loading="lazy"
+          class="clearstep-cover"
+        />
+        </a>
+      </figure>
+      <div class="featured-copy">
+        <p class="eyebrow">{featuredProject.category}</p>
+        <h3 id="clearstep-title">{featuredProject.title}</h3>
+        <p class="project-description">{featuredProject.description}</p>
+        <p class="tools">{featuredProject.tools}</p>
+        <a class="text-link case-study-link" href="/work/clearstep">Read the case study <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+    <div class="project-list">{secondaryProjects.map((project) => <article class="project"><div><p class="eyebrow category">{project.category}</p><h3>{project.title}</h3><p class="project-description">{project.description}</p><p class="tools">{project.tools}</p></div><div class="project-action">{project.href ? <a class="text-link" href={project.href}>Code on GitHub <span aria-hidden="true">↗</span></a> : null}</div></article>)}</div>
+    </div>
+  </section>
+  <section class="writing-section wrap" id="writing" aria-labelledby="writing-title">
+    <div class="writing-heading"><h2 id="writing-title">Writing</h2><a class="text-link" href="/writing">All writing <span aria-hidden="true">→</span></a></div>
+    <div class="writing-preview">
+      <h3>{writingSeries.title}</h3>
+      <p>A three-part introduction to language models, practical AI applications, and agents.</p>
+      <a class="article-link" href={`/writing/${writingSeries.firstArticleId}`}>{writingSeries.articles[0]}</a>
+    </div>
+  </section>
+  <section class="photography-preview wrap" id="photography" aria-labelledby="photography-title">
+    <h2 id="photography-title">Away from the desk</h2>
+    <p class="photography-intro">A few photos I've taken along the way.</p>
+    <div class="photography-grid">
+      {photographyPreview.map(photo => <figure>
+        <Image src={photo.src} alt={photo.alt} widths={[360, 720, 1080]} sizes="(max-width: 560px) 88vw, (min-width: 1280px) 352px, 29vw" loading="lazy" />
+      </figure>)}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .photography-preview { padding-block:8px 64px; }
+  .photography-intro { margin-top:12px; color:var(--muted); font-size:1rem; }
+  .photography-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(20px,3vw,32px); align-items:start; margin-top:28px; }
+  .photography-grid figure { min-width:0; aspect-ratio:3/4; overflow:hidden; }
+  .photography-grid img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+  @media(max-width:560px) {
+    .photography-preview { padding-bottom:48px; }
+    .photography-grid { grid-template-columns:1fr; gap:24px; }
+  }
+
+  .hero { padding-block:32px 40px; }
+  .hero-with-photo { display:grid; grid-template-columns:minmax(0,58fr) minmax(0,42fr); gap:clamp(28px,4vw,48px); align-items:center; }
+  .hero-main { min-width:0; }
+  .hero .hero-framing { font-size:1.4rem; line-height:1.45; margin-bottom:14px; }
+  .hero-secondary { font-size:1.125rem; line-height:1.65; max-width:52ch; }
+  .hero .intro { font-size:1rem; line-height:1.65; margin-top:18px; max-width:52ch; }
+  .hero .text-link { margin-top:16px; }
+  .hero-photo { min-width:0; position:relative; width:100%; max-width:416px; aspect-ratio:4/5; justify-self:end; }
+  .hero-photo img { display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 100%; }
+  .work-section { padding-block:40px 48px; background:#f0ede6; }
+  .work-section .section-heading { display:flex; justify-content:space-between; align-items:baseline; gap:24px; max-width:none; margin-bottom:28px; }
+  .featured-project { display:grid; grid-template-columns:minmax(0,55fr) minmax(0,45fr); gap:32px; align-items:center; }
+  .project-cover,.featured-copy { min-width:0; }
+  .featured-copy h3 { font-family:var(--font-heading); font-size:2.2rem; margin-top:6px; }
+  .featured-copy .project-description { margin-top:14px; font-size:1.0625rem; max-width:48ch; }
+  .case-study-link { margin-top:16px; }
+  .project-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:40px; margin-top:40px; }
+  .project { padding-block:8px 0; }
+  .project + .project { margin-top:32px; }
+  .project h3 { font-family:var(--font-heading); margin-top:8px; }
+  .project .project-description { font-size:1.0625rem; margin-top:12px; }
+  .writing-section { display:grid; grid-template-columns:minmax(0,38fr) minmax(0,62fr); gap:36px; padding-block:48px 64px; border-top:1px solid var(--line); }
+  .writing-heading .text-link { margin-top:18px; }
+  .writing-preview { min-width:0; max-width:65ch; }
+  .writing-preview h3 { font-size:1.4rem; }
+  .writing-preview p { color:var(--muted); font-size:.94rem; margin-top:12px; }
+  .article-link { display:inline-block; margin-top:20px; font-size:1.12rem; }
+  @media(max-width:800px) { .featured-project { grid-template-columns:1fr; gap:24px; } .project + .project { margin-top:0; } .hero-with-photo { grid-template-columns:1fr; gap:28px; } .hero-photo { justify-self:start; } }
+  @media(max-width:560px) {
+    .hero { padding-block:24px 32px; }
+    .featured-project,.project-list,.writing-section { grid-template-columns:1fr; gap:24px; }
+    .project-cover { grid-column:1; }
+    .writing-section { padding-block:32px 48px; }
+    .project .project-description { margin-top:12px; }
+    .work-section { padding-bottom:32px; }
+  }
+
+  .clearstep-cover-link {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .clearstep-cover {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+  }
+</style>

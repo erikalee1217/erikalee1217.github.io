@@ -1,0 +1,15 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { getPublishedArticles } from '../../lib/articles';
+export async function getStaticPaths() {
+  return (await getPublishedArticles()).map(article => ({ params: { id: article.id }, props: { article } }));
+}
+interface Props { article: CollectionEntry<'articles'> }
+const { article } = Astro.props;
+const { Content, headings } = await render(article);
+if (headings.some(heading => heading.depth === 1)) {
+  throw new Error(`Article ${article.id}: use H2 or deeper in Markdown; the layout supplies H1.`);
+}
+---
+<ArticleLayout article={article}><Content /></ArticleLayout>

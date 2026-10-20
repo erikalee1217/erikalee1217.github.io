@@ -1,0 +1,7 @@
+---
+import { professionalLinks } from '../data/home';
+---
+<footer class="site-footer wrap">
+  <div><a class="wordmark" href="/#home">erika lee<span aria-hidden="true">.</span></a><p>Thanks for stopping by.</p></div>
+  <nav aria-label="Professional profiles">{professionalLinks.map(link => <a href={link.href}>{link.label} <span aria-hidden="true">↗</span></a>)}</nav>
+</footer>
